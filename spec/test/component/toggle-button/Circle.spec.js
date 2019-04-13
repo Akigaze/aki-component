@@ -10,6 +10,7 @@ describe("Circle", () => {
 
     expect(circle.children()).toHaveClassName(style["sizable"]);
     expect(circle.children()).toHaveClassName(style["thin-border"]);
+    expect(circle.children()).toHaveClassName(style["circle"]);
   });
 
   it("should be a circle span with specific size", () => {
@@ -34,7 +35,7 @@ describe("Circle", () => {
     expect(circle.children().prop("style")).toEqual(exceptStyle);
   });
 
-  it("should call function from circleClick prop when clik", () => {
+  it("should call function from circleClick prop when click", () => {
     const mockClickFunc = jest.fn();
     const circle = mount(<Circle circleClick={mockClickFunc}/>);
     circle.simulate("click");
