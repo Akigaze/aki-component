@@ -1,11 +1,16 @@
-.list{
-    list-style: none;
-    font-size: 18px;
-    color: #333;
-    margin: auto 10px;
-    padding: 0;
-    cursor: pointer;
+.big{
+    font-size: 40px;
 }
-.list li:hover{
-    color: blue;
+
+.light-red{
+    color: #fc7f82;
+}
+
+.light-red:hover{
+    color: #52fcbb;
+}
+
+.big-red-title{
+    composes: big;
+    composes: light-red;
 }
