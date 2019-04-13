@@ -1,16 +1,16 @@
-.big{
-    font-size: 40px;
+.big {
+  font-size: 40px;
 }
 
-.light-red{
-    color: #fc7f82;
+.light-red {
+  color: #fc7f82;
 }
 
-.light-red:hover{
-    color: #52fcbb;
+.light-red:hover {
+  color: #52fcbb;
 }
 
-.big-red-title{
-    composes: big;
-    composes: light-red;
+.big-red-title {
+  composes: big;
+  composes: light-red;
 }
