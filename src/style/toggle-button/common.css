@@ -1,16 +1,11 @@
-.capsule-box{}
-
-.circle{}
-
-.capsule-box > * {
-  position: relative;
-  top: -1px;
-  left: -1px;
+.pointer{
+  cursor: pointer;
 }
 
 .sizable{
-  display: inline-block;
-  transition: all 200ms;
+  display: inline-flex;
+  transition: all 500ms;
+  user-select: none;
 }
 
 .thin-border{

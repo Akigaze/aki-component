@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {isFunction} from "lodash";
 import classNames from "classnames";
 
-import style from "../../style/toggle-button/common.css";
+import commonStyle from "../../style/toggle-button/common.css";
+import style from "../../style/toggle-button/component.css";
 
 export class CapsuleBox extends Component{
   constructor(props){
@@ -20,11 +21,11 @@ export class CapsuleBox extends Component{
   render(){
     const {size, color, borderColor} = this.props;
 
-    const shapeStyle = {width: 2*size, height: size, borderRadius: size/2};
+    const shapeStyle = {width: 2*size, height: size, borderRadius: size/2+1};
     const colorStyle = {backgroundColor: color, borderColor};
     const capsuleBoxStyle = Object.assign({}, shapeStyle, colorStyle);
 
-    const capsuleBoxClassName = classNames(style["capsule-box"], style["sizable"], style["thin-border"]);
+    const capsuleBoxClassName = classNames(style["capsule-box"], commonStyle["sizable"], commonStyle["thin-border"]);
 
     return (
       <span className={capsuleBoxClassName} style={capsuleBoxStyle} onClick={this.click}>

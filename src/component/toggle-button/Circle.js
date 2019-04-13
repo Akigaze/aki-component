@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {isFunction} from "lodash";
 import classNames from "classnames";
 
-import style from "../../style/toggle-button/common.css";
+import commonStyle from "../../style/toggle-button/common.css";
+import style from "../../style/toggle-button/component.css";
 
 export class Circle extends Component{
   constructor(props){
@@ -20,12 +21,12 @@ export class Circle extends Component{
   render(){
     const {size, color, borderColor, xMove, yMove} = this.props;
 
-    const circleShape = {width: size, height: size, borderRadius: size/2};
+    const circleShape = {width: size, height: size, borderRadius: size/2+1};
     const circleColor = {backgroundColor: color, borderColor};
     const circleTransform = {transform: `translateX(${xMove}px) translateY(${yMove}px)`};
     const circleStyle = Object.assign({}, circleShape, circleColor, circleTransform);
 
-    const circleClassName = classNames(style["circle"], style["sizable"], style["thin-border"]);
+    const circleClassName = classNames(style["circle"], commonStyle["sizable"], commonStyle["thin-border"]);
 
     return (
       <span className={circleClassName} style={circleStyle} onClick={this.click}/>

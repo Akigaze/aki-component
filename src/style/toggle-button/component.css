@@ -1,0 +1,13 @@
+.circle{}
+
+.capsule-box{}
+
+.toggle-button{
+  composes: pointer from "./common.css";
+}
+
+.capsule-box > * {
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
