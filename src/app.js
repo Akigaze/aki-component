@@ -42,12 +42,12 @@ export default class App extends Component {
           </CapsuleBox>
         </span>
         <br/>
-        <ToggleButton ref={this.t1} size={8} toggleReady={this.addToggleButtonController}/>
+        <ToggleButton ref={this.t1} color="#09a991" size={8} toggleReady={this.addToggleButtonController}/>
         <ToggleButton toggleChange={this.toggleClick}/>
-        <ToggleButton size={12} toggleChange={this.toggleClick}/>
-        <ToggleButton size={20} toggleChange={this.toggleClick}/>
-        <ToggleButton size={24} toggleChange={this.toggleClick}/>
-        <ToggleButton size={30} toggleChange={this.toggleClick}/>
+        <ToggleButton size={12} color="red" toggleChange={this.toggleClick}/>
+        <ToggleButton size={20} color="#E45632" toggleChange={this.toggleClick}/>
+        <ToggleButton size={24} color="orange" toggleChange={this.toggleClick}/>
+        <ToggleButton size={30} color="#45a563" toggleChange={this.toggleClick}/>
         <ToggleButton size={50} toggleChange={this.toggleClick}/>
       </div>
     )

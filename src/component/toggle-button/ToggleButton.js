@@ -8,7 +8,7 @@ import commonStyle from "../../style/toggle-button/common.css";
 import style from "../../style/toggle-button/component.css";
 import {CapsuleBox} from "./CapsuleBox";
 import {Circle} from "./Circle";
-import {toggleStyle} from "./toggle-button-type";
+import {toggleStyleGhost, getToggleStyle} from "./toggle-button-type";
 
 const toggleStatus = {
   ON: true,
@@ -18,6 +18,10 @@ const toggleStatus = {
 export class ToggleButton extends Component {
   constructor(props) {
     super(props);
+    this.toggleStyle = {
+      ON: getToggleStyle(props.color),
+      OFF: toggleStyleGhost
+    };
     this.state = {
       on: toggleStatus.OFF
     }
@@ -54,7 +58,7 @@ export class ToggleButton extends Component {
     const {on} = this.state;
 
     const circleXMove = on ? size : 0;
-    const {boxColor, boxBorder, circleColor, circleBorder} = on ? toggleStyle.ON : toggleStyle.OFF;
+    const {boxColor, boxBorder, circleColor, circleBorder} = on ? this.toggleStyle.ON : this.toggleStyle.OFF;
 
     const toggleButtonClassName = classNames(
       style["toggle-button"],
@@ -73,11 +77,13 @@ export class ToggleButton extends Component {
 }
 
 ToggleButton.defaultProps = {
-  size: 10
+  size: 10,
+  color: null
 };
 
 ToggleButton.propTypes = {
   size: PropTypes.number,
+  color: PropTypes.string,
   toggleChange: PropTypes.func,
   toggleReady: PropTypes.func
 };
