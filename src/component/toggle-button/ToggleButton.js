@@ -23,11 +23,24 @@ export class ToggleButton extends Component {
     }
   }
 
+  componentDidMount(){
+    const {toggleReady} = this.props;
+    if (isFunction(toggleReady)){
+      toggleReady(this.toggleControl);
+    }
+  }
+
+  toggleControl = (isOn) => {
+    if (isOn !== this.state.on) {
+      this.setToggleStatus(isOn);
+    }
+  };
+
   setToggleStatus = (isOn) => {
     this.setState({on: isOn});
     const {toggleChange} = this.props;
     if (isFunction(toggleChange)){
-      toggleChange(isOn)
+      toggleChange(isOn);
     }
   };
 
@@ -60,11 +73,11 @@ export class ToggleButton extends Component {
 }
 
 ToggleButton.defaultProps = {
-  size: 10,
-  toggleChange: null
+  size: 10
 };
 
 ToggleButton.propTypes = {
   size: PropTypes.number,
-  toggleChange: PropTypes.func
+  toggleChange: PropTypes.func,
+  toggleReady: PropTypes.func
 };

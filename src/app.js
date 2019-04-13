@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import classNames from "classnames";
+import {isFunction} from "lodash";
 
 import appStyle from "./style/app.css";
 import {Circle} from "./component/toggle-button/Circle";
@@ -9,14 +10,23 @@ import {ToggleButton} from "./component/toggle-button/ToggleButton";
 export default class App extends Component {
   constructor(props) {
     super(props);
+    this.toggleButtonContollers = [];
+    this.t1 = React.createRef();
   }
+
+  addToggleButtonController = (func) => {
+    if (isFunction(func)) {
+      this.toggleButtonContollers.push(func);
+    }
+  };
 
   clickCircle(){
     console.log("test");
   }
 
   toggleClick = (status) => {
-    console.log(status);
+    console.log(this.t1.current.state.on);
+    this.toggleButtonContollers.forEach(func => func(!this.t1.current.state.on));
   };
 
   render() {
@@ -32,7 +42,7 @@ export default class App extends Component {
           </CapsuleBox>
         </span>
         <br/>
-        <ToggleButton size={8} toggleChange={this.toggleClick}/>
+        <ToggleButton ref={this.t1} size={8} toggleReady={this.addToggleButtonController}/>
         <ToggleButton toggleChange={this.toggleClick}/>
         <ToggleButton size={12} toggleChange={this.toggleClick}/>
         <ToggleButton size={20} toggleChange={this.toggleClick}/>
