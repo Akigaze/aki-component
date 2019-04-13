@@ -74,9 +74,9 @@ module.exports = {
   moduleNameMapper: {
         //将jpg,png等图像文件映射成fileMock.js文件所export的模块
         "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":"<rootDir>/spec/mock/file.mock.js",
-        //将css文件映射成styleMock.js文件所export的模块
-        "\\.(css|less)$": "<rootDir>/spec/mock/style.mock.js"
-},
+        //使用 identity-obj-proxy 处理css module
+        "\\.(css|less)$": "identity-obj-proxy"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

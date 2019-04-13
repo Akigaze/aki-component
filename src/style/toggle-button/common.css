@@ -1,0 +1,9 @@
+.sizable{
+  display: inline-block;
+  transition: all 200ms;
+}
+
+.thin-border{
+  border-width: 1px;
+  border-style: solid;
+}
