@@ -4,7 +4,7 @@ import {mount} from "enzyme";
 import statusStyle from "../../../../src/style/toggle-button/status.css";
 import commonStyle from "../../../../src/style/toggle-button/common.css";
 import style from "../../../../src/style/toggle-button/component.css";
-import {toggleStyleBlue, toggleStyleGhost} from "../../../../src/component/toggle-button/toggle-button-type";
+import {defaultToggleStyle, blueStyle, ghostStyle} from "../../../../src/component/toggle-button/toggle-button-type";
 import {ToggleButton} from "../../../../src/component/toggle-button/ToggleButton";
 
 describe("ToggleButton", () => {
@@ -34,7 +34,7 @@ describe("ToggleButton", () => {
   });
 
   it("should be off status as default", () => {
-    const {boxColor, boxBorder, circleColor, circleBorder} = toggleStyleGhost;
+    const {boxColor, boxBorder, circleColor, circleBorder} = ghostStyle;
     const toggleButton = mount(<ToggleButton/>);
     const capsuleBox = toggleButton.find("CapsuleBox");
     const circle = toggleButton.find("Circle");
@@ -42,6 +42,17 @@ describe("ToggleButton", () => {
     expect(capsuleBox.props()).toEqual(expect.objectContaining({color: boxColor, borderColor: boxBorder}));
     expect(circle.props()).toEqual(expect.objectContaining({color: circleColor, borderColor: circleBorder}));
     expect(toggleButton.children()).toHaveClassName(statusStyle["toggle-off"]);
+  });
+
+  it("should render the given status", () => {
+    const {boxColor, boxBorder, circleColor, circleBorder} = defaultToggleStyle;
+    const toggleButton = mount(<ToggleButton toggleOn={true}/>);
+    const capsuleBox = toggleButton.find("CapsuleBox");
+    const circle = toggleButton.find("Circle");
+
+    expect(capsuleBox.props()).toEqual(expect.objectContaining({color: boxColor, borderColor: boxBorder}));
+    expect(circle.props()).toEqual(expect.objectContaining({color: circleColor, borderColor: circleBorder}));
+    expect(toggleButton.children()).toHaveClassName(statusStyle["toggle-on"]);
   });
 
   it("should Circle move when click", () => {
@@ -65,7 +76,7 @@ describe("ToggleButton", () => {
   });
 
   it("should be on style when click", () => {
-    const {boxColor, boxBorder, circleColor, circleBorder} = toggleStyleBlue;
+    const {boxColor, boxBorder, circleColor, circleBorder} = blueStyle;
     const toggleButton = mount(<ToggleButton/>);
     toggleButton.find("CapsuleBox").simulate("click");
     toggleButton.update();
@@ -110,7 +121,7 @@ describe("ToggleButton", () => {
   });
 
   it("should render the specific color ToggleButton", () => {
-    const {circleColor} = toggleStyleBlue;
+    const {circleColor} = blueStyle;
     const toggleButton = mount(<ToggleButton color="#FF0000"/>);
     toggleButton.setState({on: true});
     toggleButton.update();

@@ -1,20 +1,20 @@
-export const toggleStyleBlue = {
+export const blueStyle = {
   boxColor: "#0B85FF",
   boxBorder: "#0B85FF",
   circleColor: "#FFF",
   circleBorder: "#0B85FF"
 };
 
-export const toggleStyleGhost = {
+export const ghostStyle = {
   boxColor: "#FFF",
   boxBorder: "#B8BDC2",
   circleColor: "#FFF",
   circleBorder: "#B8BDC2"
 };
 
-export const defaultToggleStyle = toggleStyleBlue;
+export const defaultToggleStyle = blueStyle;
 
-export const getToggleStyle = (color) => {
+export const getStyle = (color) => {
   if (color) {
     const defaultStyle = JSON.parse(JSON.stringify(defaultToggleStyle));
     const customOnStyle = {

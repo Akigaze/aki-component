@@ -6,9 +6,9 @@ import classNames from "classnames";
 import statusStyle from "../../style/toggle-button/status.css";
 import commonStyle from "../../style/toggle-button/common.css";
 import style from "../../style/toggle-button/component.css";
+import {ghostStyle, getStyle} from "./toggle-button-type";
 import {CapsuleBox} from "./CapsuleBox";
 import {Circle} from "./Circle";
-import {toggleStyleGhost, getToggleStyle} from "./toggle-button-type";
 
 const toggleStatus = {
   ON: true,
@@ -19,11 +19,11 @@ export class ToggleButton extends Component {
   constructor(props) {
     super(props);
     this.toggleStyle = {
-      ON: getToggleStyle(props.color),
-      OFF: toggleStyleGhost
+      ON: getStyle(props.color),
+      OFF: ghostStyle
     };
     this.state = {
-      on: toggleStatus.OFF
+      on: Boolean(props.toggleOn).valueOf()
     }
   }
 
@@ -78,12 +78,14 @@ export class ToggleButton extends Component {
 
 ToggleButton.defaultProps = {
   size: 10,
-  color: null
+  color: null,
+  toggleOn: false
 };
 
 ToggleButton.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
+  toggleOn: PropTypes.bool,
   toggleChange: PropTypes.func,
   toggleReady: PropTypes.func
 };
