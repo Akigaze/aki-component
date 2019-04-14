@@ -12,6 +12,13 @@ export const ghostStyle = {
   circleBorder: "#B8BDC2"
 };
 
+export const greyStyle = {
+  boxColor: "#BFBFBF",
+  boxBorder: "#BFBFBF",
+  circleColor: "#FFF",
+  circleBorder: "#BFBFBF"
+};
+
 export const defaultToggleStyle = blueStyle;
 
 export const getStyle = (color) => {
