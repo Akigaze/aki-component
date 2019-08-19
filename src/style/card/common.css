@@ -1,0 +1,30 @@
+.in-flex-center {
+  display: inline-flex;
+  align-items: center;
+}
+
+.padding-v4 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.padding-h8 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.bg-blue {
+  background-color: #0B85FF;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
+.border-blue{
+  border: #0B85FF 1px solid;
+}
+
+.radius4 {
+  border-radius: 4px;
+}

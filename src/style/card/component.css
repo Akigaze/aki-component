@@ -1,0 +1,6 @@
+.default-card{
+  composes: bg-blue from "./common.css";
+  composes: border-blue from "./common.css";
+  composes: radius4 from "./common.css";
+  composes: white from "./common.css";
+}
