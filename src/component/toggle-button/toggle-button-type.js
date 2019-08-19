@@ -19,17 +19,16 @@ export const greyStyle = {
   circleBorder: "#BFBFBF"
 };
 
-export const defaultToggleStyle = blueStyle;
+export const defaultStyle = blueStyle;
 
 export const getStyle = (color) => {
   if (color) {
-    const defaultStyle = JSON.parse(JSON.stringify(defaultToggleStyle));
     const customOnStyle = {
       boxColor: color,
       boxBorder: color,
       circleBorder: color
     };
-    return Object.assign(defaultStyle, customOnStyle)
+    return Object.assign({}, defaultStyle, customOnStyle)
   }
-  return defaultToggleStyle;
+  return defaultStyle;
 };

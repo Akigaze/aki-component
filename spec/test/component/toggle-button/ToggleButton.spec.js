@@ -4,7 +4,7 @@ import {mount} from "enzyme";
 import statusStyle from "../../../../src/style/toggle-button/status.css";
 import commonStyle from "../../../../src/style/toggle-button/common.css";
 import style from "../../../../src/style/toggle-button/component.css";
-import {defaultToggleStyle, blueStyle, ghostStyle} from "../../../../src/component/toggle-button/toggle-button-type";
+import {defaultStyle, blueStyle, ghostStyle} from "../../../../src/component/toggle-button/toggle-button-type";
 import {ToggleButton} from "../../../../src/component/toggle-button/ToggleButton";
 
 describe("ToggleButton", () => {
@@ -45,7 +45,7 @@ describe("ToggleButton", () => {
   });
 
   it("should render the given status", () => {
-    const {boxColor, boxBorder, circleColor, circleBorder} = defaultToggleStyle;
+    const {boxColor, boxBorder, circleColor, circleBorder} = defaultStyle;
     const toggleButton = mount(<ToggleButton toggleOn={true}/>);
     const capsuleBox = toggleButton.find("CapsuleBox");
     const circle = toggleButton.find("Circle");

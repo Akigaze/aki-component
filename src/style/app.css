@@ -10,7 +10,25 @@
   color: #52fcbb;
 }
 
+.font18 {
+  font-size: 18px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin-r20 {
+  margin-right: 20px;
+}
+
 .big-red-title {
   composes: big;
   composes: light-red;
+}
+
+.comp-tab {
+  composes: font18;
+  composes: bold;
+  composes: margin-r20;
 }
